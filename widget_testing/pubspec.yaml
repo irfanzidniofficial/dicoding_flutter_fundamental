@@ -1,4 +1,4 @@
-name: read_write_file
+name: widget_testing
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -9,8 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  path: ^1.8.3
-  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
