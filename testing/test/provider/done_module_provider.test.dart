@@ -21,4 +21,23 @@ void main() {
 
     test('Another test case', () {});
   });
+
+  // Tips: S, apabila bagian arrange digunakan di seluruh test Anda, maka Anda bisa mengeluarkan inisialisasi variabel dan memanfaatkan fungsi setUp(). Fungsi setUp() akan dijalankan setiap sebelum setiap pengujian dari fungsi test().
+  group('Provider Test', () {
+    const testModuleName = 'Test Module';
+    late DoneModuleProvider doneModuleProvider;
+
+    setUp(() {
+      // arrange
+      doneModuleProvider = DoneModuleProvider();
+    });
+
+    test('should contain new item when module completed', () {
+      // act
+      doneModuleProvider.complete(testModuleName);
+      // assert
+      var result = doneModuleProvider.doneModuleList.contains(testModuleName);
+      expect(result, true);
+    });
+  });
 }
