@@ -24,13 +24,27 @@ class NoteListPage extends StatelessWidget {
                 key: Key(note.id.toString()),
                 background: Container(color: Colors.red),
                 onDismissed: (direction) {
-                  // TODO : Kode untuk menghapus note
+                  provider.deleteNote(note.id!);
                 },
                 child: Card(
                   child: ListTile(
                     title: Text(note.title),
                     subtitle: Text(note.description),
-                    onTap: () async {},
+                    onTap: () async {
+                      final navigator = Navigator.of(context);
+
+                      final selectedNote = await provider.getNoteById(note.id!);
+
+                      navigator.push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return NoteAddUpdatePage(
+                              note: selectedNote,
+                            );
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ),
               );
@@ -42,9 +56,11 @@ class NoteListPage extends StatelessWidget {
         child: const Icon(Icons.add),
         onPressed: () {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const NoteAddUpdatePage()));
+            context,
+            MaterialPageRoute(
+              builder: (context) => const NoteAddUpdatePage(),
+            ),
+          );
         },
       ),
     );
