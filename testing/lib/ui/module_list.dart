@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:widget_testing/provider/done_module_provider.dart';
+import 'package:widgettesting/provider/done_module_provider.dart';
+
 
 
 class ModuleList extends StatelessWidget {

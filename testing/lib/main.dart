@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:widget_testing/provider/done_module_provider.dart';
-import 'package:widget_testing/ui/module_page.dart';
+import 'package:widgettesting/provider/done_module_provider.dart';
+import 'package:widgettesting/ui/module_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => DoneModuleProvider(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Flutter Testing',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,

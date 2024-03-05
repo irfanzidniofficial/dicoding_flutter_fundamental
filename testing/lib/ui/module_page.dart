@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
-import 'package:widget_testing/ui/done_module_list.dart';
-import 'package:widget_testing/ui/module_list.dart';
+import 'package:widgettesting/ui/done_module_list.dart';
+import 'package:widgettesting/ui/module_list.dart';
 
 class ModulePage extends StatelessWidget {
   const ModulePage({Key? key}) : super(key: key);

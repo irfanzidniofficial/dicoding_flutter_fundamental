@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:widget_testing/provider/done_module_provider.dart';
+
+import 'package:widgettesting/provider/done_module_provider.dart';
 
 class DoneModuleList extends StatelessWidget {
   const DoneModuleList({Key? key}) : super(key: key);
