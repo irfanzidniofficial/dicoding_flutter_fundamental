@@ -1,5 +1,6 @@
 import 'package:dicoding_chatting/pages/chat_page.dart';
 import 'package:dicoding_chatting/pages/register_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,8 +16,10 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  final _auth = FirebaseAuth.instance;
+
   bool _obscureText = true;
-  final bool _isLoading = false;
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +75,28 @@ class _LoginPageState extends State<LoginPage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
-              onPressed: () =>
-                  Navigator.pushReplacementNamed(context, ChatPage.id),
+              onPressed: () async {
+                setState(() {
+                  _isLoading = true;
+                });
+                try {
+                  final navigator = Navigator.of(context);
+                  final email = _emailController.text;
+                  final password = _passwordController.text;
+                  await _auth.signInWithEmailAndPassword(
+                    email: email,
+                    password: password,
+                  );
+                  navigator.pushReplacementNamed(ChatPage.id);
+                } catch (e) {
+                  final snackbar = SnackBar(content: Text(e.toString()));
+                  ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                } finally {
+                  setState(() {
+                    _isLoading = false;
+                  });
+                }
+              },
               child: const Text('Login'),
             ),
             TextButton(
