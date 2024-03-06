@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "893776644724",
+    "project_id": "dicoding-chatting-16fd4",
+    "storage_bucket": "dicoding-chatting-16fd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893776644724:android:329c661f6586139a5bdf21",
+        "android_client_info": {
+          "package_name": "com.example.dicoding_chatting"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4QXzHR_AtOQdLpVzYpMmbM9O6ZXJMBqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
